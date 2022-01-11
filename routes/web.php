@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('games.main');
+    return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
