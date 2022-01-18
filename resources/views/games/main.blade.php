@@ -20,112 +20,62 @@
 
 <body>
     <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-				<!--<img src="property\fittingroom.png" alt="" width="28" height="24" class="rounded-circle" class="d-inline-block align-text-top"> -->
-                <h4>ROM STATIONS</h4>
-            </div>
-
-            <ul class="list-unstyled components">
-				<li>
-                    <a href="">HOME</a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">CONSOLE</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="">PS 1</a>
-                        </li>
-                        <li>
-                            <a href="">PS 2</a>
-                        </li>
-						<li>
-                            <a href="">PS 3</a>
-                        </li>
-                        <li>
-                            <a href="">PS 4</a>
-                        </li>
-                        <li>
-                            <a href="">PS 5</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>   
-        </nav>
+        @yield('contenthome')
 
         <!-- Page Content  -->
-        <div id="content">
-                
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
+        <div id="content"> 
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                        <i class="fas fa-align-left"></i>
+                        <span>Menu</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                           <i class="fas fa-align-justify"></i>
+                    </button>
 
-                        <button type="button" id="sidebarCollapse" class="btn btn-dark">
-                            <i class="fas fa-align-left"></i>
-                            <span>Menu</span>
-                        </button>
-                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fas fa-align-justify"></i>
-                        </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="nav navbar-nav ml-auto">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Authentication Links -->
+                             @guest
                                 <li class="nav-item">
-                                    <a class="nav-link" href="logout.php">Log Out</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
-                            </ul>
-                            <ul class="navbar-nav ml-auto">
-                                <!-- Authentication Links -->
-                                @guest
+                                @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                     </li>
-                                    @if (Route::has('register'))
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                        </li>
-                                    @endif
-                                @else
-                                    <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                @endif
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
                                         </a>
-        
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                               onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
-                                            </a>
-        
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                @csrf
-                                            </form>
-                                        </div>
-                                    </li>
-                                @endguest
-                            </ul>
-                        </div>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @endguest
+                        </ul>
                     </div>
-                </nav>
-
-            <section class="gambar">
-                    <div class="card-body">
-                        <div class="container">
-                            <h2><center><strong>ROM GAME PLAYSTATIONS</strong></center><br><br><br><br><br><br><br><br><br><br><br></h2>
-                        </div>
-                    </div>
-            </section>
-            <main class="py-4">
-                @yield('content')
-            </main>
+                </div>
+            </nav>
+                <main class="py-4">
+                    @yield('content')
+                </main>
                 <br>
-                <footer>
-                    <div class = "text-light text-center" >
-                        Copyright @2021 - Lathief Sentika Widjaja
-                    </div>
-                </footer>
-
+            <footer>
+                <div class = "text-light text-center" >
+                    Copyright @2021 - Lathief Sentika Widjaja
+                </div>
+            </footer>
         </div>
     </div>
 

@@ -66,6 +66,7 @@ a:focus {
     background: #161617;
     color: rgb(89, 108, 216);
     transition: all 0.3s;
+    padding: 6px 14px;
 }
 
 #sidebar.active {
