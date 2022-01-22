@@ -1,9 +1,10 @@
-@extends('games.main')
+@extends('ps.sidemen')
 
 @section("content")
 <div class = "container">
   <h3> Game Rom Ps1 </h3>
-  <a href="{{route('ps1.create')}}" class="btn btn-succes">Tambah Data</a>
+  <a href="{{route('ps1.create')}}" class="btn btn-primary">Tambah Data</a>
+  
   <div class="col-sm-12">
 
     @if(session()->get('success'))
@@ -23,7 +24,7 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($ps1s as $ps1)
+      @foreach ($pss as $ps1)
           <tr>
               <td>{{$loop->iteration}}</td>
               <td>{{$ps1->name}}</td>

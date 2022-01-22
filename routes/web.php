@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('ps1', 'Ps1Controller');
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+

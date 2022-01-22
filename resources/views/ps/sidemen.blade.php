@@ -9,7 +9,7 @@
 
         <ul class="list-unstyled components">
             <li>
-                <a href="">HOME</a>
+                <a href="{{url('/home')}}">HOME</a>
             </li>
             <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">CONSOLE</a>

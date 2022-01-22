@@ -4,22 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ps1;
+use App\Http\Controllers\Controller;
 
 
 class Ps1Controller extends Controller
 {
     public function index()
     {
-        $ps1s = Ps1::all();
-        
-        return view('ps1.index', compact('gameps1'));
+        $pss = Ps1::all();
+        return view('ps1.index', compact('pss'));
         
 
     }
     public function create()
     {
         $ps1s = Ps1::all();
-        return view('ps1.create', compact('ps1s'));
+        return view('ps1.create');
     }
 
     /**
@@ -32,7 +32,7 @@ class Ps1Controller extends Controller
     {
         //
         Ps1::create($request->all());
-        return redirect('student');
+        return redirect('ps1');
     }
 
     public function edit(Ps1 $ps1)
