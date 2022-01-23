@@ -68,4 +68,11 @@ class Ps1Controller extends Controller
         $ps1->delete();
         return redirect('ps1');
     }
+
+    public function beli(Ps1 $ps1)
+    {
+        //
+        $pss = Ps1::where('kategori', 'Action')->count();
+        return view('ps1.index', compact('pss'));
+    }
 }

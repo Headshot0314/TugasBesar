@@ -21,6 +21,7 @@
         <th>Kategori</th>
         <th>Tahun rilis</th>
         <th colspan=2>Action<th>
+        <th>Beli</th>
       </tr>
     </thead>
     <tbody>
@@ -40,9 +41,20 @@
                   <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
               </td>
+              <td>
+                <input type="checkbox" class="form-check-input" name="beli" value="1">
+              </td>
           </tr>
       @endforeach
     </tbody>
   </table>
+  <form method="POST" action="{{route('ps1.index', $ps1->id)}}">
+    <div class="form-group">
+      <input type="submit" class="btn btn-primary" value="Simpan">
+    </div>
+    <h4> Jumlah Kategori Action = {{$pss}}
+  </form>
 </div>
+
 @stop
+
