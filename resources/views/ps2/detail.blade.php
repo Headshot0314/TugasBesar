@@ -20,12 +20,12 @@
     <div class= "row">
         <div class ="col mb-4">
             <ul>
-                <img src="{{ URL::to('/') }}/image/{{ $ps1->image }}"/>
-                <li><b>Game</b> : {{ $ps1->name }}</li>
+                <img src="{{ URL::to('/') }}/images/{{ $ps2->image }}"/>
+                <li><b>Game</b> : {{ $ps2->name }}</li>
                 <br>
-                <li><b>Kategori</b> : {{ $ps1->kategori }}</li>
+                <li><b>Kategori</b> : {{ $ps2->kategori }}</li>
                 <br>
-                <li><b>Tahun Rilis</b> : {{ $ps1->tahun }}</li>
+                <li><b>Tahun Rilis</b> : {{ $ps2->tahun }}</li>
                 <br>
             </ul>
         </div>

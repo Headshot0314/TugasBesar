@@ -18,7 +18,7 @@
                         <a href="{{url('/ps1')}}">PS 1</a>
                     </li>
                     <li>
-                        <a href="">PS 2</a>
+                        <a href="{{url('/ps2')}}">PS 2</a>
                     </li>
                     <li>
                         <a href="">PS 3</a>

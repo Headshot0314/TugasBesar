@@ -2,8 +2,8 @@
 
 @section("content")
 <div class = "container">
-  <h3> Game Rom Ps1 </h3>
-  <a href="{{route('ps1.create')}}" class="btn btn-primary">Tambah Data</a>
+  <h3> Game Rom Ps2 </h3>
+  <a href="{{route('ps2.create')}}" class="btn btn-primary">Tambah Data</a>
   
   <div class="col-sm-12">
 
@@ -26,25 +26,25 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($pss as $ps1)
+      @foreach ($pss as $ps2)
           <tr>
               <td>{{$loop->iteration}}</td>
-              <td>{{$ps1->name}}</td>
-              <td>{{$ps1->kategori}}</td>
-              <td>{{$ps1->tahun}}</td>
-              <td><img src="{{ url('image', $ps1->image)}}" width="60"/></td>
+              <td>{{$ps2->name}}</td>
+              <td>{{$ps2->kategori}}</td>
+              <td>{{$ps2->tahun}}</td>
+              <td><img src="{{ asset('images/'. $ps2->new_image)}}" class="img=thumbnail" width="60"/></td>
               <td>
-                <a href="{{route('ps1.edit', $ps1->id)}}" class="btn btn-primary">Edit</a>
+                <a href="{{route('ps2.edit', $ps2->id)}}" class="btn btn-primary">Edit</a>
               </td>
               <td>
-                <form action="{{route('ps1.destroy', $ps1->id)}}" method="post">
+                <form action="{{route('ps2.destroy', $ps2->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
               </td>
               <td>
-                <a href="{{ route('ps1.show', $ps1->id)}}" class="btn btn-primary">Detail</a>
+                <a href="{{ route('ps2.show', $ps2->id)}}" class="btn btn-primary">Detail</a>
               </td>
           </tr>
       @endforeach

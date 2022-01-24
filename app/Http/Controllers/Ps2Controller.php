@@ -3,23 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Ps1;
+use App\Ps2;
 use App\Http\Controllers\Controller;
 
-
-class Ps1Controller extends Controller
+class Ps2Controller extends Controller
 {
     public function index()
     {
-        $pss = Ps1::all();
-        return view('ps1.index', compact('pss'));  
+        $pss = Ps2::all();
+        return view('ps2.index', compact('pss'));  
     }
-
-    public function add()
-    {
-        return view('beli.index');
-    }
-   
     public function addProses(Request $request)
     {
         return view('beli.tampilan',[
@@ -28,19 +21,12 @@ class Ps1Controller extends Controller
     }
     public function create()
     {
-        $pss = Ps1::all();
-        return view('ps1.create', compact('pss'));
+        $pss = Ps2::all();
+        return view('ps2.create', compact('pss'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-       
         $request->validate([
             'name' => 'required',
             'kategori' => 'required',
@@ -59,55 +45,56 @@ class Ps1Controller extends Controller
                 'image'=> $request->new_image
             );
         }
-        Ps1::create($baru);
-        return redirect('ps1');
+        Ps2::create($baru);
+        return redirect('ps2');
 
     }
 
-    public function edit(Ps1 $ps1)
+    public function edit(Ps2 $ps2)
     {
         //
-        return view('ps1.edit', compact('ps1'));
+        return view('ps2.edit', compact('ps2'));
     }
 
      /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Ps1t  $ps1
+     * @param  \App\Ps2  $ps2
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, Ps1 $ps1)
+    public function update(Request $request, Ps2 $ps2)
     {
         //
-        $ps1->update($request->all());
-        return redirect('ps1');
+        $ps2->update($request->all());
+        return redirect('ps2');
     }
 
      /**
      * Display the specified resource.
      *
      *
-     * @param  \App\Ps1  $ps1
+     * @param  \App\Ps2  $ps2
      * @return \Illuminate\Http\Response
      */
-    public function show(Ps1 $ps1)
+    public function show(Ps2 $ps2)
     {
-        return view('ps1.detail', compact('ps1'));
+        return view('ps2.detail', compact('ps2'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Ps1  $ps1
+     * @param  \App\Ps2  $ps2
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ps1 $ps1)
+    public function destroy(Ps2 $ps2)
     {
 
-        $ps1->delete();
-        return redirect('ps1');
+        $ps2->delete();
+        return redirect('ps2');
     }
+
 
 }

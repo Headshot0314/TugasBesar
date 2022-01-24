@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePs1sTable extends Migration
+class CreatePs2sTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePs1sTable extends Migration
      */
     public function up()
     {
-        Schema::create('ps1s', function (Blueprint $table) {
+        Schema::create('ps2s', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 50);
             $table->string('kategori',20)->nullable();
             $table->date('tahun');
-            $table->string('image', 100)->nullable();
+            $table->string('image', 50)->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreatePs1sTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ps1s');
+        Schema::dropIfExists('ps2s');
     }
 }
