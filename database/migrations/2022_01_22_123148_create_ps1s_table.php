@@ -18,6 +18,7 @@ class CreatePs1sTable extends Migration
             $table->string('name', 50);
             $table->string('kategori',20)->nullable();
             $table->date('tahun');
+            $table->string('image', 50);
             $table->timestamps();
         });
     }

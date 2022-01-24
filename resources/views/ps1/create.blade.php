@@ -13,7 +13,7 @@
     <div class="container">
         <h1> Tambah Game </h1>
         
-        <form method="POST" action="{{ route('ps1.store')}}">
+        <form method="POST" action="{{ route('ps1.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="name">Nama Game</label>
@@ -31,8 +31,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="name">Tahun Rilis</label>
+                <label for="tahun">Tahun Rilis</label>
                 <input type="date" class="form-control" name="tahun">
+            </div>
+            <div class="form-group">
+                <label for="image">Gambar</label>
+                <input type="file" class="form-control" name="image">
             </div>
 
             <div class="form-group">

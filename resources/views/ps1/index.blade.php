@@ -20,8 +20,9 @@
         <th>Game</th>
         <th>Kategori</th>
         <th>Tahun rilis</th>
-        <th colspan=2>Action<th>
-        <th>Beli</th>
+        <th>Gambar</th>
+        <th colspan=3>Action<th>
+        
       </tr>
     </thead>
     <tbody>
@@ -31,6 +32,7 @@
               <td>{{$ps1->name}}</td>
               <td>{{$ps1->kategori}}</td>
               <td>{{$ps1->tahun}}</td>
+              <td><img src="{{ asset('images/'.$ps1->image)}}" class="img=thumbnail" width="60"/></td>
               <td>
                 <a href="{{route('ps1.edit', $ps1->id)}}" class="btn btn-primary">Edit</a>
               </td>
@@ -42,18 +44,13 @@
                 </form>
               </td>
               <td>
-                <input type="checkbox" class="form-check-input" name="beli" value="1">
+                <a href="{{route('ps1.index', $ps1->id)}}" class="btn btn-primary">Detail</a>
               </td>
           </tr>
       @endforeach
     </tbody>
   </table>
-  <form method="POST" action="{{route('ps1.index', $ps1->id)}}">
-    <div class="form-group">
-      <input type="submit" class="btn btn-primary" value="Simpan">
-    </div>
-    <h4> Jumlah Kategori Action = {{$pss}}
-  </form>
+
 </div>
 
 @stop

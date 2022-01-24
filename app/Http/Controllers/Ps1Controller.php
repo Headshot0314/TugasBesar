@@ -13,6 +13,9 @@ class Ps1Controller extends Controller
     {
         $pss = Ps1::all();
         return view('ps1.index', compact('pss'));
+
+        $pss = Ps1::where('id', 'id')->get();
+        return view('ps1.detail', compact('pss'));
         
 
     }
@@ -30,9 +33,16 @@ class Ps1Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:30000'
+        ]);
+        $image =  $request->file('image');
+        $new_image = rand() . '.' . $image->getClientOriginalName();
+        $image ->move(public_path('/images/'), $new_image);
+        
         Ps1::create($request->all());
         return redirect('ps1');
+        
     }
 
     public function edit(Ps1 $ps1)
@@ -68,11 +78,16 @@ class Ps1Controller extends Controller
         $ps1->delete();
         return redirect('ps1');
     }
-
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Ps1  $ps1
+     * @return \Illuminate\Http\Response
+     */
     public function beli(Ps1 $ps1)
     {
-        //
-        $pss = Ps1::where('kategori', 'Action')->count();
-        return view('ps1.index', compact('pss'));
+
+        $ps12 = Ps1::where('kategori', 'Action')->count();
+        return view('ps1.index', compact('ps12'));
     }
 }
