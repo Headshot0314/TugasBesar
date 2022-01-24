@@ -32,7 +32,7 @@
               <td>{{$ps1->name}}</td>
               <td>{{$ps1->kategori}}</td>
               <td>{{$ps1->tahun}}</td>
-              <td><img src="{{ asset('images/'.$ps1->image)}}" class="img=thumbnail" width="60"/></td>
+              <td><img src="{{ asset('images/'. $ps1->image)}}" class="img=thumbnail" width="60"/></td>
               <td>
                 <a href="{{route('ps1.edit', $ps1->id)}}" class="btn btn-primary">Edit</a>
               </td>
@@ -50,7 +50,7 @@
       @endforeach
     </tbody>
   </table>
-
+  <a  href="{{url('/ps1/add')}}">Beli</a>
 </div>
 
 @stop

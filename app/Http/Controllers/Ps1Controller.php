@@ -19,6 +19,19 @@ class Ps1Controller extends Controller
         
 
     }
+
+    public function add(){
+        return view('beli.input');
+    }
+   
+    public function addProses(Request $request){
+        
+
+        return view('beli.tampilan',[
+            'data'=>$request
+            
+        ]);
+    }
     public function create()
     {
         $ps1s = Ps1::all();
