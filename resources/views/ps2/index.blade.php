@@ -18,7 +18,7 @@
       <tr>
         <th>No</th>
         <th>Game</th>
-        <th>Kategori</th>
+        <th>Genre</th>
         <th>Tahun rilis</th>
         <th>Gambar</th>
         <th colspan=3>Action<th>
@@ -29,10 +29,10 @@
       @foreach ($pss as $ps2)
           <tr>
               <td>{{$loop->iteration}}</td>
-              <td>{{$ps2->name}}</td>
+              <td><b><a href="{{ route('ps2.show', $ps2->id)}}"> {{$ps2->name}}</a></b></td>
               <td>{{$ps2->kategori}}</td>
               <td>{{$ps2->tahun}}</td>
-              <td><img src="{{ asset('images/'. $ps2->new_image)}}" class="img=thumbnail" width="60"/></td>
+              <td><img src="{{ asset('/image2/' .$ps2->image)}}" class="img=thumbnail" width="60"/></td>
               <td>
                 <a href="{{route('ps2.edit', $ps2->id)}}" class="btn btn-primary">Edit</a>
               </td>
@@ -42,9 +42,6 @@
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
-              </td>
-              <td>
-                <a href="{{ route('ps2.show', $ps2->id)}}" class="btn btn-primary">Detail</a>
               </td>
           </tr>
       @endforeach
@@ -61,7 +58,7 @@
     </div>
     @endif 
 <div class ="container">
-    <form method="post" action="/beli/addProses">
+    <form method="post" action="/beli/addProses2">
         {{ csrf_field()}}
         <div class="form-group">
             <label for="jenis">Jenis</label>
@@ -80,7 +77,7 @@
             <input type="number" class="form-control" name="qty" placeholder ="Input jumlah">
         </div>
         
-        <button type="submit" class="btn btn-primary">simpan</button>
+        <button type="submit" class="btn btn-primary">Beli</button>
     </form>
 </div>
 </div>

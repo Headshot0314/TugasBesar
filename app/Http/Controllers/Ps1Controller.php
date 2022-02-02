@@ -51,12 +51,12 @@ class Ps1Controller extends Controller
         $image =  $request->file('image');
         if($image){
             $new_image = $image->getClientOriginalName();
-            $image ->move('image', $new_image);
+            $image->move('image', $new_image);
             $baru = array(
                 'name'=> $request->name,
                 'kategori'=> $request->kategori,
                 'tahun'=> $request->tahun,
-                'image'=> $request->new_image
+                'image'=> $request->image
             );
         }
         Ps1::create($baru);

@@ -18,10 +18,10 @@
       <tr>
         <th>No</th>
         <th>Game</th>
-        <th>Kategori</th>
+        <th>Genre</th>
         <th>Tahun rilis</th>
         <th>Gambar</th>
-        <th colspan=3>Action<th>
+        <th>Action<th>
         
       </tr>
     </thead>
@@ -29,10 +29,10 @@
       @foreach ($pss as $ps1)
           <tr>
               <td>{{$loop->iteration}}</td>
-              <td>{{$ps1->name}}</td>
+              <td><b><a href="{{ route('ps1.show', $ps1->id)}}"> {{$ps1->name}}</a></b></td>
               <td>{{$ps1->kategori}}</td>
               <td>{{$ps1->tahun}}</td>
-              <td><img src="{{ url('image', $ps1->image)}}" width="60"/></td>
+              <td><img src="{{ asset('/image/' .$ps1->image)}}" width="60"/></td>
               <td>
                 <a href="{{route('ps1.edit', $ps1->id)}}" class="btn btn-primary">Edit</a>
               </td>
@@ -42,9 +42,6 @@
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
-              </td>
-              <td>
-                <a href="{{ route('ps1.show', $ps1->id)}}" class="btn btn-primary">Detail</a>
               </td>
           </tr>
       @endforeach
@@ -80,7 +77,7 @@
             <input type="number" class="form-control" name="qty" placeholder ="Input jumlah">
         </div>
         
-        <button type="submit" class="btn btn-primary">simpan</button>
+        <button type="submit" class="btn btn-primary">Beli</button>
     </form>
 </div>
 </div>

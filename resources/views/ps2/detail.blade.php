@@ -10,27 +10,16 @@
     </div>
     @endif
   </div>
-  <div class ="container">
-    <div class= "row">
-        <div class ="col text-center">
-            <h1>Biodata</h1>
-        </div>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <div class = "text-dark text-center" >
+        <img src="{{ asset('/image2/' .$ps2->image)}}" width = "320" height = "340" class="rounded-circle">
+        <h1 class="display-4">{{ $ps2->name }}</h1>
+        <p><b>Genre</b> : {{ $ps2->kategori }}</p>
+        <p><b>Tahun Rilis</b> : {{ $ps2->tahun }}</p>
+      </div>
     </div>
-
-    <div class= "row">
-        <div class ="col mb-4">
-            <ul>
-                <img src="{{ URL::to('/') }}/images/{{ $ps2->image }}"/>
-                <li><b>Game</b> : {{ $ps2->name }}</li>
-                <br>
-                <li><b>Kategori</b> : {{ $ps2->kategori }}</li>
-                <br>
-                <li><b>Tahun Rilis</b> : {{ $ps2->tahun }}</li>
-                <br>
-            </ul>
-        </div>
-    </div>
-</div>
+  </div>
 </div>
 
 @stop

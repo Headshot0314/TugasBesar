@@ -15,7 +15,7 @@ class Ps2Controller extends Controller
     }
     public function addProses(Request $request)
     {
-        return view('beli.tampilan',[
+        return view('beli.tampilan2',[
             'data'=>$request
         ]);
     }
@@ -37,12 +37,12 @@ class Ps2Controller extends Controller
         $image =  $request->file('image');
         if($image){
             $new_image = $image->getClientOriginalName();
-            $image ->move('image', $new_image);
+            $image ->move('image2', $new_image);
             $baru = array(
                 'name'=> $request->name,
                 'kategori'=> $request->kategori,
                 'tahun'=> $request->tahun,
-                'image'=> $request->new_image
+                'image'=> $request->image
             );
         }
         Ps2::create($baru);

@@ -16,9 +16,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/ps1/add', 'Ps1Controller@add');
 
 Route::post('/beli/addProses', 'Ps1Controller@addProses');
+Route::post('/beli/addProses2', 'Ps2Controller@addProses');
 Route::resource('ps1', 'Ps1Controller');
 Route::resource('ps2', 'Ps2Controller');
 Route::get('/home', 'HomeController@index')->name('home');

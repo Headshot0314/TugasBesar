@@ -24,6 +24,7 @@
                 <select class="form-control" name="kategori">
                 <option value ="Action">Action</option>
                 <option value ="Adventure">Adventure</option>
+                <option value ="Fighting">Fighting</option>
                 <option value ="Arcade">Arcade</option>
                 <option value ="Sport">Sport</option>
                 <option value ="Strategy">Strategy</option>

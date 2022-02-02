@@ -12,17 +12,13 @@
                 <a href="{{url('/home')}}">HOME</a>
             </li>
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">CONSOLE</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">PLATFORM</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
                         <a href="{{url('/ps1')}}">PS 1</a>
                     </li>
                     <li>
                         <a href="{{url('/ps2')}}">PS 2</a>
-                    </li>
-                    <li>
-                        <a href="">PS 3</a>
-                    </li>
                     </li>
                 </ul>
             </li>

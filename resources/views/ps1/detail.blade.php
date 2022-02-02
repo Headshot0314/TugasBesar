@@ -3,34 +3,24 @@
 @section("content")
 <div class = "container">
   <div class="col-sm-12">
-
-    @if(session()->get('success'))
-    <div class="alert alert-success">
-      {{ session()->get('success') }}
-    </div>
-    @endif
+      @if(session()->get('success'))
+      <div class="alert alert-success">
+        {{ session()->get('success') }}
+      </div>
+      @endif
   </div>
-  <div class ="container">
-    <div class= "row">
-        <div class ="col text-center">
-            <h1>Biodata</h1>
-        </div>
-    </div>
 
-    <div class= "row">
-        <div class ="col mb-4">
-            <ul>
-                <img src="{{ URL::to('/') }}/image/{{ $ps1->image }}"/>
-                <li><b>Game</b> : {{ $ps1->name }}</li>
-                <br>
-                <li><b>Kategori</b> : {{ $ps1->kategori }}</li>
-                <br>
-                <li><b>Tahun Rilis</b> : {{ $ps1->tahun }}</li>
-                <br>
-            </ul>
-        </div>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <div class = "text-dark text-center" >
+        <img src="{{ asset('/image/' .$ps1->image)}}" width = "360" height = "335" class="rounded-circle" >
+        <br><br>
+        <h1 class="display-4">{{ $ps1->name }}</h1>
+        <p><b></b> Genre : {{ $ps1->kategori }}</p>
+        <p><b>Tahun Rilis</b> : {{ $ps1->tahun }}</p>
+      </div>
     </div>
-</div>
+  </div>
 </div>
 
 @stop
